@@ -44,8 +44,8 @@ $extra = sprintf("%04d", rand(1, 4));
 <p>Find the center point of the circle with equation <br/><img src="<?php print captcha_asset("calculus/assets/calculus_0005_{$extra}.png"); ?>"/></p>
 <div id="rx">
 	<div>Answer:</div>
-	<div>x = <input id="answer_x" type="number" name="answer_x" required/></div>
-	<div>y = <input id="answer_y" type="number" name="answer_y" required/></div>
+	<div>x = <input id="answer_x" type="number" name="answer_x" step="0.01" required/></div>
+	<div>y = <input id="answer_y" type="number" name="answer_y" step="0.01" required/></div>
 	<input type="hidden" name="extra" value="<?php print htmlspecialchars(aes_encrypt($extra, APP_KEY), ENT_QUOTES, "UTF-8"); ?>"/>
 	<?php require __DIR__."/000_form.php"; ?>
 </div>
