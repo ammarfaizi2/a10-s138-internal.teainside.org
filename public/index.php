@@ -91,6 +91,7 @@ require __DIR__."/../bootstrap/web.php";
 					}
 				}
 			};
+			xhr.withCredentials = true;
 			xhr.open("POST", "/api.php?action=login");
 			xhr.send(new FormData(login_form));
 		});
