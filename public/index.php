@@ -83,9 +83,11 @@ require __DIR__."/../bootstrap/web.php";
 		resolve_captcha();
 
 		login_form.addEventListener("submit", function () {
+			login_btn.disabled = 1;
 			let xhr = new XMLHttpRequest;
 			xhr.onreadystatechange = function () {
 				if (this.readyState === 4) {
+					login_btn.disabled = 0;
 					let d = JSON.parse(this.responseText).data;
 					alert(d.msg);
 					if (d.status == "ok") {
