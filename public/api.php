@@ -41,11 +41,16 @@ switch ($_GET["action"]) {
 			}
 			$code = 200;
 			if (check_captcha_answer($ckey["type"], $ckey["num"])) {
-				print "Wrong username or password!";
+				$data = [
+					"status" => "failed",
+					"msg" => "Wrong username or password!"
+				];
 			} else {
-				print "Wrong captcha!";
+				$data = [
+					"status" => "failed",
+					"msg" => "Wrong captcha answer!"
+				];
 			}
-			exit;
 		}
 		break;
 	default:

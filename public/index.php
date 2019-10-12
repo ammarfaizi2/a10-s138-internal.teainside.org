@@ -45,11 +45,8 @@ require __DIR__."/../bootstrap/web.php";
 				<div class="bbc"><input type="password" name="password" required/></div>
 				<div id="loading_captcha"><h3>Loading captcha...</h3></div>
 				<div id="answer_echo" style="display:none;"><h4>Please answer this problem to make sure you are a human!</h4></div>
-				<div id="captcha">
-				</div>
-				<div id="rcg">
-					<button type="button" onclick="resolve_captcha();">Refresh captcha</button>
-				</div>
+				<div id="captcha"></div>
+				<div id="rcg"><button type="button" onclick="resolve_captcha();">Refresh captcha</button></div>
 				<div class="blc"><button id="login_btn" disabled>Login</button></div>
 			</form>
 		</div>
@@ -87,7 +84,11 @@ require __DIR__."/../bootstrap/web.php";
 			let xhr = new XMLHttpRequest;
 			xhr.onreadystatechange = function () {
 				if (this.readyState === 4) {
-					alert(this.responseText);
+					let d = JSON.parse(this.responseText).data;
+					alert(d.msg);
+					if (d.status == "ok") {
+						window.location = d.redirect;
+					}
 				}
 			};
 			xhr.open("POST", "/api.php?action=login");
