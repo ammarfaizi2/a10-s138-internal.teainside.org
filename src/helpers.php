@@ -12,7 +12,7 @@ function load_captcha(string $type, ?int $num = null): ?string
 		$num = rand(1, $captchaProblemsAmount);
 	}
 
-	// $num = 7;
+	// $num = 8;
 
 	$captchaKey = json_encode(
 		[

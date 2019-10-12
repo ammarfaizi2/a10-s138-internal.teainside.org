@@ -5,6 +5,7 @@ if (isset($_GET["data"]) && is_string($_GET["data"])) {
 
 	if (isset($file["type"], $file["path"], $file["expired"])) {
 
+
 		if (time() >= $file["expired"]) {
 			goto error_404;
 		}

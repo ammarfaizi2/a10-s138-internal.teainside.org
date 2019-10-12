@@ -1,3 +1,3 @@
 <?php
 
-$captchaProblemsAmount = 7;
+$captchaProblemsAmount = 8;
