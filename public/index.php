@@ -63,8 +63,15 @@ require __DIR__."/../bootstrap/web.php";
 			answer_echo = gid("answer_echo"),
 			rcg = gid("rcg");
 
-		function resolve_captcha()
-		{
+		function ed(n=1) {
+			let tags = document.getElementsByTagName("input"), i;
+			for (i = 0; i < tags.length; i++) {
+				n ? tags[i].setAttribute("readonly", 1) : tags[i].removeAttribute("readonly", 1);
+			}
+			rcg.style.display = n ? "none" : "";
+		}
+
+		function resolve_captcha() {
 			login_btn.disabled = 1;
 			rcg.style.display = answer_echo.style.display = "none";
 			captcha.innerHTML = loading_captcha.style.display = "";
@@ -80,18 +87,23 @@ require __DIR__."/../bootstrap/web.php";
 			xhr.open("GET", "/api.php?action=get_captcha");
 			xhr.send();
 		}
-		resolve_captcha();
 
 		login_form.addEventListener("submit", function () {
 			login_btn.disabled = 1;
+			ed();
 			let xhr = new XMLHttpRequest;
 			xhr.onreadystatechange = function () {
 				if (this.readyState === 4) {
-					login_btn.disabled = 0;
-					let d = JSON.parse(this.responseText).data;
-					alert(d.msg);
-					if (d.status == "ok") {
-						window.location = d.redirect;
+					try	{
+						login_btn.disabled = 0;
+						ed(0);
+						let d = JSON.parse(this.responseText).data;
+						alert(d.msg);
+						if (d.status == "ok") {
+							window.location = d.redirect;
+						}
+					} catch (e) {
+						alert("Error: "+e.message+"\nResponse Text: "+this.responseText);
 					}
 				}
 			};
@@ -99,6 +111,8 @@ require __DIR__."/../bootstrap/web.php";
 			xhr.open("POST", "/api.php?action=login");
 			xhr.send(new FormData(login_form));
 		});
+
+		resolve_captcha();
 	</script>
 </body>
 </html>

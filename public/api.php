@@ -1,5 +1,5 @@
 <?php
-
+sleep(1);
 require __DIR__."/../bootstrap/web.php";
 
 $data = [];
