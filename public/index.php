@@ -6,6 +6,7 @@ require __DIR__."/../bootstrap/web.php";
 <html>
 <head>
 	<title>Tea Science Internal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<style type="text/css">
 		body {
 			background-color: #000;
