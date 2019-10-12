@@ -65,6 +65,7 @@ require __DIR__."/../bootstrap/web.php";
 
 		function resolve_captcha()
 		{
+			login_btn.disabled = 1;
 			rcg.style.display = answer_echo.style.display = "none";
 			captcha.innerHTML = loading_captcha.style.display = "";
 			let xhr = new XMLHttpRequest;
