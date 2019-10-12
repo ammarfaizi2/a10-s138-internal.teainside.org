@@ -45,7 +45,7 @@ require __DIR__."/../bootstrap/web.php";
 				<div class="llc"><label>Password: </label></div>
 				<div class="bbc"><input type="password" name="password" required/></div>
 				<div id="loading_captcha"><h3>Loading captcha...</h3></div>
-				<div id="answer_echo" style="display:none;"><h4>Please answer this problem to make sure you are a human!</h4></div>
+				<div id="answer_echo" style="display:none;"><h4>Please solve this problem to make sure you are a human!</h4></div>
 				<div id="captcha"></div>
 				<div id="rcg"><button type="button" onclick="resolve_captcha();">Refresh captcha</button></div>
 				<div class="blc"><button id="login_btn" disabled>Login</button></div>
