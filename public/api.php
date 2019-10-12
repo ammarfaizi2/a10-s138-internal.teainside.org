@@ -1,5 +1,5 @@
 <?php
-sleep(1);
+
 require __DIR__."/../bootstrap/web.php";
 
 $data = [];
@@ -54,6 +54,8 @@ switch ($_GET["action"]) {
 		}
 		break;
 	default:
+		$code = 400;
+		$data = ["error" => "bad_request"];
 		break;
 }
 
