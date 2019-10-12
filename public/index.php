@@ -66,7 +66,7 @@ require __DIR__."/../bootstrap/web.php";
 		function ed(n=1) {
 			let tags = document.getElementsByTagName("input"), i;
 			for (i = 0; i < tags.length; i++) {
-				n ? tags[i].setAttribute("readonly", 1) : tags[i].removeAttribute("readonly", 1);
+				n ? tags[i].setAttribute("readonly", 1) : tags[i].removeAttribute("readonly");
 			}
 			rcg.style.display = n ? "none" : "";
 		}
