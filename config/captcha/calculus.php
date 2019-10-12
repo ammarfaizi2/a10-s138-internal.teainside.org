@@ -1,0 +1,3 @@
+<?php
+
+$captchaProblemsAmount = 6;

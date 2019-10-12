@@ -1,0 +1,1 @@
+<input id="captcha_key" type="hidden" name="captcha_key" value="<?php print aes_encrypt($captchaKey, APP_KEY); ?>"/>
